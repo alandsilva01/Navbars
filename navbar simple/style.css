@@ -7,71 +7,74 @@
 
 .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
     width: 100vw;
     height: 70px;
-    background-color: #a5fc;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
+}
+
+.logo {
+    color: aliceblue;
+    text-align: center;
+    font-weight: bolder;
 }
 
 .nav-list {
     display: flex;
-    justify-content: space-around;
     gap: 32px;
-    list-style: none;
 }
 
-.nav-list a {
+.li {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+    align-items: center;
+    justify-content: center;
+}
+
+.li a {
     text-decoration: none;
-    color: white;
+    color: brown;
+    font-weight: bolder;
 }
 
-.logo {
-    text-decoration: none;
-    color: white;
-}
-
-.main {
-    height: calc(100vh - 70px);
-    background: center/ cover no-repeat url(./backondas.jpg);
-}
-
-#burguer {
+.burger {
     display: none;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+    align-items: center;
+    justify-content: center;
 }
 
-@media screen and (max-width: 750px) {
-    
-    #burguer{
-        display: block;
-        z-index: 1;
-    }
-
+@media (max-width: 750px) {
     .nav-list {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #a5c;
-
+        display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        gap: 0;
-        pointer-events: none;
+        gap: 32px;
+        background-color: blueviolet;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        padding-top: 70px;
+        z-index: 1;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
     }
 
-    .nav.active .hamburger {
-        position: fixed;
-        top: 26px;
-        right: 16px;
-        border-top-color: transparent;
+    .nav-list.active {
+        transform: translateX(0);
+    }
+
+    .burger {
+        display: flex;
+        z-index: 10;
     }
 }
